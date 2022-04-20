@@ -1,0 +1,18 @@
+2 
+abvg chfg 3
+1
+abbf
+ffgh
+a-f,b-f,b-g,f-h
+1
+abc
+def
+a-d,b-e,c-f
+1
+123
+456
+1-4,2-5,3-6
+2
+abc
+cde
+2

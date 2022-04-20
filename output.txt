@@ -1,0 +1,11 @@
+Filled container.
+Container contains 5 elements.
+1: It is Cypher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3
+2: It is Cypher of replace: Open text is abbf, encrypted text is ffgh, massive of pair a-f,b-f,b-g,f-h
+3: It is Cypher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f
+4: It is Cypher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6
+5: It is Cypher of shift: Open text is abc, encrypted text is cde, sdvig on 2
+
+Empty container.
+Container contains 0 elements.
+
