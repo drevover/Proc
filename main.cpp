@@ -108,4 +108,19 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 		Temp = Temp->next;
 	}
 	ofst << endl;
+	for (int i = 0; i < obj.sizelist; i++)
+	{
+		OnlyZamena(*(Temp->s), ofst);
+		Temp = Temp->next;
+	}
+	ofst << endl;
+}
+void d::OnlyZamena(shifr& s, ofstream& ofst) {
+	switch (s.k) {
+	case shifr::sh::ZAMENA:
+		ZamenaOutput((zamena*)s.o, ofst);
+		break;
+	default:
+		return;
+	}
 }
