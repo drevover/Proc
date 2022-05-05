@@ -64,8 +64,6 @@ int d::characters(shifr* obj) {
 		return characters((zamena*)obj->o);
 	case shifr::sh::SDVIG:
 		return characters((sdvig*)obj->o);
-	case shifr::sh::NUMBER:
-		return characters((number*)obj->o);
 	default:
 		break;
 	}
