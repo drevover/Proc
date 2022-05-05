@@ -16,6 +16,7 @@ namespace d {
 	};
 	zamena* ZamenaInput(zamena& obj, ifstream& ifst);
 	void ZamenaOutput(zamena* obj, ofstream& ofst);
+	int characters(zamena* obj);
 	struct sdvig {
 		enum class sh {
 			ZAMENA,
@@ -28,6 +29,7 @@ namespace d {
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
+	int characters(sdvig* obj);
 	struct shifr {
 		enum class sh {
 			ZAMENA,
@@ -39,6 +41,7 @@ namespace d {
 	};
 	shifr* ShifrInput(ifstream& ifst);
 	void ShifrOutput(shifr& obj, ofstream& ofst);
+	int characters(shifr* obj);
 	struct Node {
 		shifr* s;
 		Node* perv;
