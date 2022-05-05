@@ -22,6 +22,9 @@ int main(int argc, char* argv[])
 	LLInput(list, ifst);
 	ofst << "Filled container." << endl;
 	LLOutput(list, ofst);
+	ofst << "Sorted container." << endl;
+	sort(list);
+	LLOutput(list, ofst);
 
 	Clear(list);
 	ofst << "Empty container." << endl;
