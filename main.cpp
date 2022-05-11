@@ -4,18 +4,18 @@
 
 d::zamena* d::ZamenaInput(zamena& obj, ifstream& ifst) {
 	obj.pair = new char[100];
-	ifst >> obj.text >> obj.encrypt >> obj.pair;
+	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
 	return &obj;
 }
-void d::ZamenaOutput(zamena* obj, ofstream& ofst){
-	ofst << "It is Cypher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << endl;
+void d::ZamenaOutput(zamena* obj, ofstream& ofst) {
+	ofst << "It is Cipher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << ", name of own - " << obj->name << endl;
 }
 d::sdvig* d::SdvigInput(sdvig& obj, ifstream& ifst) {
-	ifst >> obj.text >> obj.encrypt >> obj.n;
+	ifst >> obj.text >> obj.encrypt >> obj.n >> obj.name;
 	return &obj;
 }
 void d::SdvigOutput(sdvig* obj, ofstream& ofst) {
-	ofst << "It is Cypher of shift: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", sdvig on " << obj->n << endl;
+	ofst << "It is Cipher of shift: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", sdvig on " << obj->n << ", name of own - " << obj->name << endl;
 }
 int d::characters(zamena* obj) {
 	return size(obj->text);

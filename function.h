@@ -13,6 +13,7 @@ namespace d {
 		sh k;
 		char *pair;
 		char encrypt[50];
+		string name;
 		char text[50];
 	};
 	zamena* ZamenaInput(zamena& obj, ifstream& ifst);
@@ -27,6 +28,7 @@ namespace d {
 		sh k;
 		int n;
 		char encrypt[50];
+		string name;
 		char text[50];
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
@@ -55,6 +57,7 @@ namespace d {
 		};
 		sh k;
 		char text[50];
+		string name;
 		void* o;
 	};
 	shifr* ShifrInput(ifstream& ifst);
