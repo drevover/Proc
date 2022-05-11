@@ -83,8 +83,6 @@ int d::characters(shifr* obj) {
 		return characters((zamena*)obj->o);
 	case shifr::sh::SDVIG:
 		return characters((sdvig*)obj->o);
-	case shifr::sh::NUMBER:
-		return characters((number*)obj->o);
 	default:
 		break;
 	}
@@ -147,4 +145,39 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 		Temp = Temp->next;
 	}
 	ofst << endl;
+}
+bool d::compare(shifr* first, shifr* second)
+{
+	return characters(first) > characters(second);
+}
+void d::sort(LinkedList& obj) {
+	if (obj.sizelist < 2) {
+		return;
+	}
+	Node* current = obj.first;
+	bool flag = false;
+	do
+	{
+		current = obj.first;
+		flag = false;
+		for (int i = 0; i < (obj.sizelist - 1); ++i)
+		{
+			if (compare(current->s, current->next->s))
+			{
+				swap(current, current->next);
+				flag = true;
+			}
+			else
+			{
+				current = current->next;
+			}
+		}
+	} while (flag);
+}
+void d::swap(Node* first, Node* second) {
+	shifr* tmp;
+	tmp = first->s;
+	first->s = second->s;
+	second->s = tmp;
+	return;
 }

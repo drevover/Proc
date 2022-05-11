@@ -78,5 +78,9 @@ namespace d {
 
 	void LLInput(LinkedList& obj, ifstream& ifst);
 	void LLOutput(LinkedList& obj, ofstream& ofst);
+
+	void sort(LinkedList& obj);
+	bool compare(shifr* first, shifr* second);
+	void swap(Node* first, Node* second);
 }
 #endif
