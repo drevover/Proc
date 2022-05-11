@@ -8,6 +8,7 @@ namespace d {
 		enum class sh {
 			ZAMENA,
 			SDVIG,
+			NUMBER,
 		};
 		sh k;
 		char *pair;
@@ -21,6 +22,7 @@ namespace d {
 		enum class sh {
 			ZAMENA,
 			SDVIG,
+			NUMBER,
 		};
 		sh k;
 		int n;
@@ -30,10 +32,26 @@ namespace d {
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
 	int characters(sdvig* obj);
+	struct number {
+		enum class sh {
+			ZAMENA,
+			SDVIG,
+			NUMBER,
+		};
+		sh k;
+		string text;
+		string name;
+		int encrypt;
+		char* pair;
+	};
+	number* NumberInput(number& obj, ifstream& ifst);
+	void NumberOutput(number* obj, ofstream& ofst);
+  int characters(number* obj);
 	struct shifr {
 		enum class sh {
 			ZAMENA,
 			SDVIG,
+			NUMBER,
 		};
 		sh k;
 		char text[50];
