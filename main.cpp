@@ -4,23 +4,40 @@
 
 d::zamena* d::ZamenaInput(zamena& obj, ifstream& ifst) {
 	obj.pair = new char[100];
-	ifst >> obj.text >> obj.encrypt >> obj.pair;
+	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
 	return &obj;
 }
-void d::ZamenaOutput(zamena* obj, ofstream& ofst){
-	ofst << "It is Cypher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << endl;
+void d::ZamenaOutput(zamena* obj, ofstream& ofst) {
+	ofst << "It is Cipher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << ", name of own - " << obj->name << endl;
 }
 d::sdvig* d::SdvigInput(sdvig& obj, ifstream& ifst) {
-	ifst >> obj.text >> obj.encrypt >> obj.n;
+	ifst >> obj.text >> obj.encrypt >> obj.n >> obj.name;
 	return &obj;
 }
 void d::SdvigOutput(sdvig* obj, ofstream& ofst) {
-	ofst << "It is Cypher of shift: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", sdvig on " << obj->n << endl;
+	ofst << "It is Cipher of shift: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", sdvig on " << obj->n << ", name of own - " << obj->name << endl;
+}
+int d::characters(zamena* obj) {
+	return size(obj->text);
+}
+int d::characters(sdvig* obj) {
+	return size(obj->text);
+d::number* d::NumberInput(number& obj, ifstream& ifst) {
+	obj.pair = new char[50];
+	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
+	return &obj;
+}
+void d::NumberOutput(number* obj, ofstream& ofst) {
+	ofst << "It is Cipher of change-to-number: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of change " << obj->pair << ", name of own - " << obj->name << endl;
+}
+int d::characters(number* obj) {
+	return size(obj->text);
 }
 d::shifr* d::ShifrInput(ifstream& ifst) {
 	shifr* sr = new shifr;
 	zamena* z;
 	sdvig* sd;
+	number* n;
 	int key;
 	ifst >> key;
 	switch (key) {
@@ -34,6 +51,11 @@ d::shifr* d::ShifrInput(ifstream& ifst) {
 			sr->k = shifr::sh::SDVIG;
 			sr->o = (void*)SdvigInput(*sd,ifst);
 			return sr;
+		case 3:
+			n = new number;
+			sr->k = shifr::sh::NUMBER;
+			sr->o = (void*)NumberInput(*n, ifst);
+			return sr;
 		default:
 			return 0;
 	}
@@ -46,9 +68,25 @@ void d::ShifrOutput(shifr& obj, ofstream &ofst) {
 	case shifr::sh::SDVIG:
 		SdvigOutput((sdvig*)obj.o, ofst);
 		break;
+	case shifr::sh::NUMBER:
+		NumberOutput((number*)obj.o, ofst);
+		break;
 	default:
 		ofst << "Incorrect type of cypher" << endl;
 		return;
+	}
+}
+int d::characters(shifr* obj) {
+	switch (obj->k)
+	{
+	case shifr::sh::ZAMENA:
+		return characters((zamena*)obj->o);
+	case shifr::sh::SDVIG:
+		return characters((sdvig*)obj->o);
+  case shifr::sh::NUMBER:
+		return characters((number*)obj->o);
+	default:
+		break;
 	}
 }
 void d::Init(LinkedList& obj) {
@@ -105,6 +143,7 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 	{
 		ofst << i + 1 << ": ";
 		ShifrOutput(*Temp->s, ofst);
+		ofst << "Characters on text = " << characters(Temp->s) << endl;
 		Temp = Temp->next;
 	}
 	ofst << endl;
@@ -123,4 +162,39 @@ void d::OnlyZamena(shifr& s, ofstream& ofst) {
 	default:
 		return;
 	}
+}
+bool d::compare(shifr* first, shifr* second)
+{
+	return characters(first) > characters(second);
+}
+void d::sort(LinkedList& obj) {
+	if (obj.sizelist < 2) {
+		return;
+	}
+	Node* current = obj.first;
+	bool flag = false;
+	do
+	{
+		current = obj.first;
+		flag = false;
+		for (int i = 0; i < (obj.sizelist - 1); ++i)
+		{
+			if (compare(current->s, current->next->s))
+			{
+				swap(current, current->next);
+				flag = true;
+			}
+			else
+			{
+				current = current->next;
+			}
+		}
+	} while (flag);
+}
+void d::swap(Node* first, Node* second) {
+	shifr* tmp;
+	tmp = first->s;
+	first->s = second->s;
+	second->s = tmp;
+	return;
 }
