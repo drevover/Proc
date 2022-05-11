@@ -62,6 +62,7 @@ namespace d {
 	};
 	shifr* ShifrInput(ifstream& ifst);
 	void ShifrOutput(shifr& obj, ofstream& ofst);
+	void OnlyZamena(shifr& s, ofstream& ofst);
 	int characters(shifr* obj);
 	struct Node {
 		shifr* s;
