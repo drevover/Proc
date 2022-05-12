@@ -14,7 +14,7 @@ namespace d {
 		char *pair;
 		char encrypt[50];
 		string name;
-		char text[50];
+		string text;
 	};
 	zamena* ZamenaInput(zamena& obj, ifstream& ifst);
 	void ZamenaOutput(zamena* obj, ofstream& ofst);
@@ -29,7 +29,7 @@ namespace d {
 		int n;
 		char encrypt[50];
 		string name;
-		char text[50];
+		string text;
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
@@ -56,7 +56,7 @@ namespace d {
 			NUMBER,
 		};
 		sh k;
-		char text[50];
+		string text;
 		string name;
 		void* o;
 	};
