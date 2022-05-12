@@ -22,6 +22,7 @@ int d::characters(zamena* obj) {
 }
 int d::characters(sdvig* obj) {
 	return size(obj->text);
+}
 d::number* d::NumberInput(number& obj, ifstream& ifst) {
 	obj.pair = new char[50];
 	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
