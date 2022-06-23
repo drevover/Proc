@@ -14,8 +14,15 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 	ifstream ifst(argv[1]);
+	if (!ifst) {
+		cout << "No input file found!" << endl;
+		return 0;
+	}
 	ofstream ofst(argv[2]);
-
+	if (!ofst) {
+		cout << "No output file found!" << endl;
+		return 0;
+	}
 	cout << "Start" << endl;
 	LinkedList list;
 	Init(list);
@@ -23,9 +30,8 @@ int main(int argc, char* argv[])
 	ofst << "Filled container." << endl;
 	LLOutput(list, ofst);
 	ofst << "Sorted container." << endl;
-	sort(list);
+	Sort(list);
 	LLOutput(list, ofst);
-
 	Clear(list);
 	ofst << "Empty container." << endl;
 	LLOutput(list, ofst);
