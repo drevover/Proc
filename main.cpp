@@ -1,13 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include "function.h"
+#include <string>
+#define WRONG_SHIFR 0
 
 d::zamena* d::ZamenaInput(zamena& obj, ifstream& ifst) {
 	obj.pair = new char[100];
 	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
 	return &obj;
 }
-void d::ZamenaOutput(zamena* obj, ofstream& ofst) {
+void d::ZamenaOutput(zamena* obj, ofstream& ofst){
 	ofst << "It is Cipher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << ", name of own - " << obj->name << endl;
 }
 d::sdvig* d::SdvigInput(sdvig& obj, ifstream& ifst) {
@@ -17,12 +19,6 @@ d::sdvig* d::SdvigInput(sdvig& obj, ifstream& ifst) {
 void d::SdvigOutput(sdvig* obj, ofstream& ofst) {
 	ofst << "It is Cipher of shift: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", sdvig on " << obj->n << ", name of own - " << obj->name << endl;
 }
-int d::characters(zamena* obj) {
-	return size(obj->text);
-}
-int d::characters(sdvig* obj) {
-	return size(obj->text);
-}
 d::number* d::NumberInput(number& obj, ifstream& ifst) {
 	obj.pair = new char[50];
 	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
@@ -31,7 +27,13 @@ d::number* d::NumberInput(number& obj, ifstream& ifst) {
 void d::NumberOutput(number* obj, ofstream& ofst) {
 	ofst << "It is Cipher of change-to-number: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of change " << obj->pair << ", name of own - " << obj->name << endl;
 }
-int d::characters(number* obj) {
+int d::Characters(zamena* obj) {
+	return size(obj->text);
+}
+int d::Characters(sdvig* obj) {
+	return size(obj->text);
+}
+int d::Characters(number* obj) {
 	return size(obj->text);
 }
 d::shifr* d::ShifrInput(ifstream& ifst) {
@@ -39,18 +41,25 @@ d::shifr* d::ShifrInput(ifstream& ifst) {
 	zamena* z;
 	sdvig* sd;
 	number* n;
+	string tmp;
 	int key;
-	ifst >> key;
+	ifst >> tmp;
+	if (tmp == "\0")
+		return 0;
+	if (!isdigit(int(tmp.front())) || tmp.length() > 1)
+		key = WRONG_SHIFR;
+	else
+		key = stoi(tmp);
 	switch (key) {
 		case 1:
 			z = new zamena;
 			sr->k = shifr::sh::ZAMENA;
-			sr->o = (void*)ZamenaInput(*z,ifst);
+			sr->o = (void*)ZamenaInput(*z, ifst);
 			return sr;
 		case 2:
 			sd = new sdvig;
 			sr->k = shifr::sh::SDVIG;
-			sr->o = (void*)SdvigInput(*sd,ifst);
+			sr->o = (void*)SdvigInput(*sd, ifst);
 			return sr;
 		case 3:
 			n = new number;
@@ -74,18 +83,17 @@ void d::ShifrOutput(shifr& obj, ofstream &ofst) {
 		break;
 	default:
 		ofst << "Incorrect type of cypher" << endl;
-		return;
 	}
 }
-int d::characters(shifr* obj) {
+int d::Characters(shifr* obj) {
 	switch (obj->k)
 	{
 	case shifr::sh::ZAMENA:
-		return characters((zamena*)obj->o);
+		return Characters((zamena*)obj->o);
 	case shifr::sh::SDVIG:
-		return characters((sdvig*)obj->o);
-  case shifr::sh::NUMBER:
-		return characters((number*)obj->o);
+		return Characters((sdvig*)obj->o);
+	case shifr::sh::NUMBER:
+		return Characters((number*)obj->o);
 	default:
 		break;
 	}
@@ -144,7 +152,7 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 	{
 		ofst << i + 1 << ": ";
 		ShifrOutput(*Temp->s, ofst);
-		ofst << "Characters on text = " << characters(Temp->s) << endl;
+		ofst << "Characters on text = " << Characters(Temp->s) << endl;
 		Temp = Temp->next;
 	}
 	ofst << endl;
@@ -155,20 +163,11 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 	}
 	ofst << endl;
 }
-void d::OnlyZamena(shifr& s, ofstream& ofst) {
-	switch (s.k) {
-	case shifr::sh::ZAMENA:
-		ZamenaOutput((zamena*)s.o, ofst);
-		break;
-	default:
-		return;
-	}
-}
-bool d::compare(shifr* first, shifr* second)
+bool d::Compare(shifr* first, shifr* second) 
 {
-	return characters(first) > characters(second);
+	return Characters(first) > Characters(second);
 }
-void d::sort(LinkedList& obj) {
+void d::Sort(LinkedList& obj) {
 	if (obj.sizelist < 2) {
 		return;
 	}
@@ -180,7 +179,7 @@ void d::sort(LinkedList& obj) {
 		flag = false;
 		for (int i = 0; i < (obj.sizelist - 1); ++i)
 		{
-			if (compare(current->s, current->next->s))
+			if (Compare(current->s, current->next->s))
 			{
 				swap(current, current->next);
 				flag = true;
@@ -192,10 +191,19 @@ void d::sort(LinkedList& obj) {
 		}
 	} while (flag);
 }
-void d::swap(Node* first, Node* second) {
+void d::Swap(Node* first, Node* second) {
 	shifr* tmp;
 	tmp = first->s;
 	first->s = second->s;
 	second->s = tmp;
 	return;
+}
+void d::OnlyZamena(shifr& s, ofstream& ofst) {
+	switch (s.k) {
+	case shifr::sh::ZAMENA:
+		ZamenaOutput((zamena*)s.o, ofst);
+		break;
+	default:
+		return;
+	}
 }

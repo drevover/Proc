@@ -12,13 +12,13 @@ namespace d {
 		};
 		sh k;
 		char *pair;
-		char encrypt[50];
+		string encrypt;
 		string name;
 		string text;
 	};
 	zamena* ZamenaInput(zamena& obj, ifstream& ifst);
 	void ZamenaOutput(zamena* obj, ofstream& ofst);
-	int characters(zamena* obj);
+	int Characters(zamena* obj);
 	struct sdvig {
 		enum class sh {
 			ZAMENA,
@@ -27,14 +27,14 @@ namespace d {
 		};
 		sh k;
 		int n;
-		char encrypt[50];
+		char encrypt;
 		string name;
 		string text;
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
-	int characters(sdvig* obj);
-	struct number {
+	int Characters(sdvig* obj);
+	struct number{
 		enum class sh {
 			ZAMENA,
 			SDVIG,
@@ -48,7 +48,7 @@ namespace d {
 	};
 	number* NumberInput(number& obj, ifstream& ifst);
 	void NumberOutput(number* obj, ofstream& ofst);
-  int characters(number* obj);
+	int Characters(number* obj);
 	struct shifr {
 		enum class sh {
 			ZAMENA,
@@ -62,8 +62,8 @@ namespace d {
 	};
 	shifr* ShifrInput(ifstream& ifst);
 	void ShifrOutput(shifr& obj, ofstream& ofst);
+	int Characters(shifr* obj);
 	void OnlyZamena(shifr& s, ofstream& ofst);
-	int characters(shifr* obj);
 	struct Node {
 		shifr* s;
 		Node* perv;
@@ -80,8 +80,8 @@ namespace d {
 	void LLInput(LinkedList& obj, ifstream& ifst);
 	void LLOutput(LinkedList& obj, ofstream& ofst);
 
-	void sort(LinkedList& obj);
-	bool compare(shifr* first, shifr* second);
-	void swap(Node* first, Node* second);
+	void Sort(LinkedList& obj);
+	bool Compare(shifr* first, shifr* second);
+	void Swap(Node* first, Node* second);
 }
 #endif
