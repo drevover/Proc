@@ -109,3 +109,54 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 	}
 	ofst << endl;
 }
+void d::MultiMethod(LinkedList& obj, ofstream& ofst) {
+	Node* current_first = obj.first;
+	Node* current_second = current_first->next;
+
+	ofst << "MultiMethod." << endl;
+	for (int i = 0; i < obj.sizelist - 1; i++)
+	{
+		for (int j = i + 1; j < obj.sizelist; j++)
+		{
+			switch (current_first->s->k)
+			{
+			case shifr::sh::ZAMENA:
+				switch (current_second->s->k)
+				{
+				case shifr::sh::ZAMENA:
+					ofst << "Zamena and Zamena" << endl;
+					break;
+				case shifr::sh::SDVIG:
+					ofst << "Zamena and Sdvig" << endl;
+					break;
+				default:
+					ofst << "Unknown type" << endl;
+					break;
+				}
+				break;
+			case shifr::sh::SDVIG:
+				switch (current_second->s->k)
+				{
+				case shifr::sh::ZAMENA:
+					ofst << "Sdvig and Zamena" << endl;
+					break;
+				case shifr::sh::SDVIG:
+					ofst << "Sdvig and Sdvig" << endl;
+					break;
+				default:
+					ofst << "Unknown type" << endl;
+					break;
+				}
+				break;
+			default:
+				ofst << "Unknown type" << endl;
+				break;
+			}
+			ShifrOutput(*current_first->s, ofst);
+			ShifrOutput(*current_second->s, ofst);
+			current_second = current_second->next;
+		}
+		current_first = current_first->next;
+		current_second = current_first->next;
+	}
+}

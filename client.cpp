@@ -23,6 +23,9 @@ int main(int argc, char* argv[])
 	ofst << "Filled container." << endl;
 	LLOutput(list, ofst);
 
+	MultiMethod(list, ofst);
+	ofst << endl;
+
 	Clear(list);
 	ofst << "Empty container." << endl;
 	LLOutput(list, ofst);

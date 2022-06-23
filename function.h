@@ -11,9 +11,8 @@ namespace d {
 		};
 		sh k;
 		char *pair;
-		char encrypt[50];
-		string name;
-		char text[50];
+		char encrypt;
+		char text;
 	};
 	zamena* ZamenaInput(zamena& obj, ifstream& ifst);
 	void ZamenaOutput(zamena* obj, ofstream& ofst);
@@ -24,9 +23,8 @@ namespace d {
 		};
 		sh k;
 		int n;
-		char encrypt[50];
-		string name;
-		char text[50];
+		char encrypt;
+		char text;
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
@@ -36,8 +34,7 @@ namespace d {
 			SDVIG,
 		};
 		sh k;
-		char text[50];
-		string name;
+		char text;
 		void* o;
 	};
 	shifr* ShifrInput(ifstream& ifst);
@@ -54,6 +51,8 @@ namespace d {
 	};
 	void Init(LinkedList& obj);
 	void Clear(LinkedList& obj);
+
+	void MultiMethod(LinkedList& obj, ofstream& ofst);
 
 	void LLInput(LinkedList& obj, ifstream& ifst);
 	void LLOutput(LinkedList& obj, ofstream& ofst);
