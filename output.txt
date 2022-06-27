@@ -1,11 +1,130 @@
 Filled container.
-Container contains 5 elements.
-1: It is Cypher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3
-2: It is Cypher of replace: Open text is abbf, encrypted text is ffgh, massive of pair a-f,b-f,b-g,f-h
-3: It is Cypher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f
-4: It is Cypher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6
-5: It is Cypher of shift: Open text is abc, encrypted text is cde, sdvig on 2
+Container contains 7 elements.
+1: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+2: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+3: It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+Characters on text = 2
+4: It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+Characters on text = 3
+5: It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+Characters on text = 3
+6: It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+Characters on text = 3
+7: It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+Characters on text = 3
+
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+
+
+Multimethod.
+Sdvig and Sdvig
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+
+Sdvig and Sdvig
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+
+Sdvig and Number
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+
+Sdvig and Zamena
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+
+Sdvig and Sdvig
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+
+Sdvig and Number
+It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+Zamena and Zamena
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+
+Zamena and Zamena
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+
+Zamena and Sdvig
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+
+Zamena and Number
+It is Cipher of replace: Open text is ab, encrypted text is ff, massive of pair a-f,b-f, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+Zamena and Zamena
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+
+Zamena and Sdvig
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+
+Zamena and Number
+It is Cipher of replace: Open text is abc, encrypted text is def, massive of pair a-d,b-e,c-f, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+Zamena and Sdvig
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+
+Zamena and Number
+It is Cipher of replace: Open text is 123, encrypted text is 456, massive of pair 1-4,2-5,3-6, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+Sdvig and Number
+It is Cipher of shift: Open text is abc, encrypted text is cde, sdvig on 2, name of own - valera
+It is Cipher of change-to-number: Open text is abc, encrypted text is 123, massive of change a-1,b-2,c-3, name of own - valera
+
+
+Sorted container.
+Container contains 7 elements.
+1: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+2: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+3: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+4: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+5: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+6: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+7: It is Cipher of shift: Open text is abvg, encrypted text is chfg, sdvig on 3, name of own - valera
+Characters on text = 4
+
 
 Empty container.
 Container contains 0 elements.
+
 

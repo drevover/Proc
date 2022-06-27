@@ -9,7 +9,7 @@ d::zamena* d::ZamenaInput(zamena& obj, ifstream& ifst) {
 	ifst >> obj.text >> obj.encrypt >> obj.pair >> obj.name;
 	return &obj;
 }
-void d::ZamenaOutput(zamena* obj, ofstream& ofst){
+void d::ZamenaOutput(zamena* obj, ofstream& ofst) {
 	ofst << "It is Cipher of replace: Open text is " << obj->text << ", encrypted text is " << obj->encrypt << ", massive of pair " << obj->pair << ", name of own - " << obj->name << endl;
 }
 d::sdvig* d::SdvigInput(sdvig& obj, ifstream& ifst) {
@@ -51,26 +51,26 @@ d::shifr* d::ShifrInput(ifstream& ifst) {
 	else
 		key = stoi(tmp);
 	switch (key) {
-		case 1:
-			z = new zamena;
-			sr->k = shifr::sh::ZAMENA;
-			sr->o = (void*)ZamenaInput(*z, ifst);
-			return sr;
-		case 2:
-			sd = new sdvig;
-			sr->k = shifr::sh::SDVIG;
-			sr->o = (void*)SdvigInput(*sd, ifst);
-			return sr;
-		case 3:
-			n = new number;
-			sr->k = shifr::sh::NUMBER;
-			sr->o = (void*)NumberInput(*n, ifst);
-			return sr;
-		default:
-			return 0;
+	case 1:
+		z = new zamena;
+		sr->k = shifr::sh::ZAMENA;
+		sr->o = (void*)ZamenaInput(*z, ifst);
+		return sr;
+	case 2:
+		sd = new sdvig;
+		sr->k = shifr::sh::SDVIG;
+		sr->o = (void*)SdvigInput(*sd, ifst);
+		return sr;
+	case 3:
+		n = new number;
+		sr->k = shifr::sh::NUMBER;
+		sr->o = (void*)NumberInput(*n, ifst);
+		return sr;
+	default:
+		return 0;
 	}
 }
-void d::ShifrOutput(shifr& obj, ofstream &ofst) {
+void d::ShifrOutput(shifr& obj, ofstream& ofst) {
 	switch (obj.k) {
 	case shifr::sh::ZAMENA:
 		ZamenaOutput((zamena*)obj.o, ofst);
@@ -163,7 +163,7 @@ void d::LLOutput(LinkedList& obj, ofstream& ofst) {
 	}
 	ofst << endl;
 }
-bool d::Compare(shifr* first, shifr* second) 
+bool d::Compare(shifr* first, shifr* second)
 {
 	return Characters(first) > Characters(second);
 }
@@ -205,5 +205,81 @@ void d::OnlyZamena(shifr& s, ofstream& ofst) {
 		break;
 	default:
 		return;
+	}
+}
+void d::MultiMethod(LinkedList& obj, ofstream& ofst)
+{
+	Node* temp_node_first = obj.first;
+	Node* temp_node_second = temp_node_first->next;
+
+	ofst << "Multimethod." << endl;
+	for (int i = 0; i < obj.sizelist - 1; i++)
+	{
+		for (int j = i + 1; j < obj.sizelist; j++)
+		{
+			switch (temp_node_first->s->k)
+			{
+			case shifr::sh::ZAMENA:
+				switch (temp_node_second->s->k)
+				{
+				case shifr::sh::ZAMENA:
+					ofst << "Zamena and Zamena" << endl;
+					break;
+				case shifr::sh::SDVIG:
+					ofst << "Zamena and Sdvig" << endl;
+					break;
+				case shifr::sh::NUMBER:
+					ofst << "Zamena and Number" << endl;
+					break;
+				default:
+					ofst << "Unknown type" << endl;
+					break;
+				}
+				break;
+			case shifr::sh::SDVIG:
+				switch (temp_node_second->s->k)
+				{
+				case shifr::sh::ZAMENA:
+					ofst << "Sdvig and Zamena" << endl;
+					break;
+				case shifr::sh::SDVIG:
+					ofst << "Sdvig and Sdvig" << endl;
+					break;
+				case shifr::sh::NUMBER:
+					ofst << "Sdvig and Number" << endl;
+					break;
+				default:
+					ofst << "Unknown type" << endl;
+					break;
+				}
+				break;
+			case shifr::sh::NUMBER:
+				switch (temp_node_second->s->k)
+				{
+				case shifr::sh::ZAMENA:
+					ofst << "Number and Zamena" << endl;
+					break;
+				case shifr::sh::SDVIG:
+					ofst << "Number and Sdvig" << endl;
+					break;
+				case shifr::sh::NUMBER:
+					ofst << "Number and Number" << endl;
+					break;
+				default:
+					ofst << "Unknown type" << endl;
+					break;
+				}
+				break;
+			default:
+				ofst << "Unknown type" << endl;
+				break;
+			}
+			ShifrOutput(*temp_node_first->s, ofst);
+			ShifrOutput(*temp_node_second->s, ofst);
+			ofst << endl;
+			temp_node_second = temp_node_second->next;
+		}
+		temp_node_first = temp_node_first->next;
+		temp_node_second = temp_node_first->next;
 	}
 }

@@ -11,7 +11,7 @@ namespace d {
 			NUMBER,
 		};
 		sh k;
-		char *pair;
+		char* pair;
 		string encrypt;
 		string name;
 		string text;
@@ -27,14 +27,14 @@ namespace d {
 		};
 		sh k;
 		int n;
-		char encrypt;
+		string encrypt;
 		string name;
 		string text;
 	};
 	sdvig* SdvigInput(sdvig& obj, ifstream& ifst);
 	void SdvigOutput(sdvig* obj, ofstream& ofst);
 	int Characters(sdvig* obj);
-	struct number{
+	struct number {
 		enum class sh {
 			ZAMENA,
 			SDVIG,
@@ -79,6 +79,8 @@ namespace d {
 
 	void LLInput(LinkedList& obj, ifstream& ifst);
 	void LLOutput(LinkedList& obj, ofstream& ofst);
+
+	void MultiMethod(LinkedList& obj, ofstream& ofst);
 
 	void Sort(LinkedList& obj);
 	bool Compare(shifr* first, shifr* second);

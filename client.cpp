@@ -29,6 +29,9 @@ int main(int argc, char* argv[])
 	LLInput(list, ifst);
 	ofst << "Filled container." << endl;
 	LLOutput(list, ofst);
+	ofst << endl;
+	MultiMethod(list, ofst);
+	ofst << endl;
 	ofst << "Sorted container." << endl;
 	Sort(list);
 	LLOutput(list, ofst);
